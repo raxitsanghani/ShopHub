@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/shopHub', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://raxitsanghani23:raxit2112@cluster0.zmigk3j.mongodb.net/', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
