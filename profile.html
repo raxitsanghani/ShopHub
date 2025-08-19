@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile - ShopHub</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <header class="top-header">
+        <div class="header-content">
+            <!-- Left Side -->
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-text">shophub</span>
+                    <div class="logo-arrow"></div>
+                </div>
+                <div class="delivery-info">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <div class="delivery-text">
+                        <span class="delivery-location">Delivering to Ahmedabad 380009</span>
+                        <span class="update-location">Update location</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Section - Search Bar -->
+            <div class="search-section">
+                <div class="search-container">
+                    <select class="category-dropdown">
+                        <option>All</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Home</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search ShopHub">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="header-right">
+                <div class="language-selector">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span>EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="account-section">
+                    <span class="hello-text">Hello, sign in</span>
+                    <span class="account-text">Account & Lists</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="returns-section">
+                    <span class="returns-text">Returns</span>
+                    <span class="orders-text">& Orders</span>
+                </div>
+                
+                <div class="cart-section">
+                    <div class="cart-icon-container">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <span class="cart-text">Cart</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>All</span>
+                </button>
+                <a href="#" class="nav-link">Fresh</a>
+                <a href="#" class="nav-link">Prime <i class="fas fa-chevron-down"></i></a>
+                <a href="#" class="nav-link">Today's Deals</a>
+                <a href="#" class="nav-link">Customer Service</a>
+                <a href="#" class="nav-link">Electronics</a>
+                <a href="#" class="nav-link">Fashion</a>
+                <a href="#" class="nav-link">Home & Kitchen</a>
+                <a href="#" class="nav-link">Books</a>
+                <a href="#" class="nav-link">Sports</a>
+                <a href="#" class="nav-link">Automotive</a>
+                <a href="#" class="nav-link">Beauty</a>
+                <a href="#" class="nav-link">Toys</a>
+                <a href="#" class="nav-link">Health</a>
+                <a href="#" class="nav-link">Garden</a>
+                <a href="#" class="nav-link">Office</a>
+                <a href="#" class="nav-link">Pet Supplies</a>
+                <a href="#" class="nav-link">Baby Products</a>
+                <a href="#" class="nav-link">Jewelry</a>
+                <a href="#" class="nav-link">Tools</a>
+                <a href="#" class="nav-link">Music</a>
+                <a href="#" class="nav-link">Movies</a>
+                <a href="#" class="nav-link">Video Games</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="promo-banner">
+                    <span class="promo-text">ANDHERA</span>
+                    <div class="prime-banner">
+                        <span class="prime-text">Join Prime Lite at ₹67/month*</span>
+                        <span class="prime-note">*when paid annually</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="dashboard.html">Your Account</a>
+            <span class="breadcrumb-separator">></span>
+            <span>Your Profile</span>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Your Profile</h1>
+            <p>Manage your account information, addresses, and security settings</p>
+        </div>
+
+        <!-- Profile Sections -->
+        <div class="profile-sections">
+            <!-- Personal Information Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <button class="btn btn-primary" onclick="editProfile()">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                
+                <div class="profile-info">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Full Name</label>
+                            <span id="profile-name">John Doe</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Age</label>
+                            <span id="profile-age">25</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Email (Gmail)</label>
+                            <span id="profile-email">john.doe@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Phone</label>
+                            <span id="profile-phone">+91 98765 43210</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Management Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-map-marker-alt"></i> Delivery Addresses</h2>
+                    <button class="btn btn-primary" onclick="addNewAddress()">
+                        <i class="fas fa-plus"></i> Add New Address
+                    </button>
+                </div>
+                
+                <div class="addresses-list" id="addresses-list">
+                    <!-- Addresses will be loaded here dynamically -->
+                </div>
+            </div>
+
+            <!-- Password Management Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-lock"></i> Password & Security</h2>
+                </div>
+                
+                <div class="password-options">
+                    <button class="btn btn-secondary" onclick="changePassword()">
+                        <i class="fas fa-key"></i> Change Password
+                    </button>
+                    <button class="btn btn-outline" onclick="forgotPassword()">
+                        <i class="fas fa-question-circle"></i> Forgot Password
+                    </button>
+                </div>
+            </div>
+
+            <!-- Current Orders Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-shopping-bag"></i> Current Orders</h2>
+                    <button class="btn btn-primary" onclick="refreshOrders()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                
+                <div class="current-orders" id="current-orders">
+                    <!-- Current orders will be loaded here dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="profile-modal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Edit Profile</h3>
+                <button class="modal-close" onclick="closeModal('profile-modal')">&times;</button>
+            </div>
+            <div class="modal-content">
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="edit-name">Full Name</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-age">Age</label>
+                        <input type="number" id="edit-age" min="1" max="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email (Gmail)</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-phone">Phone</label>
+                        <input type="tel" id="edit-phone" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('profile-modal')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="address-modal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="address-modal-title">Add New Address</h3>
+                <button class="modal-close" onclick="closeModal('address-modal')">&times;</button>
+            </div>
+            <div class="modal-content">
+                <form id="address-form">
+                    <div class="form-group">
+                        <label for="address-type">Address Type</label>
+                        <select id="address-type" required>
+                            <option value="Home">Home</option>
+                            <option value="Office">Office</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-fullname">Full Name</label>
+                        <input type="text" id="address-fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-phone">Phone</label>
+                        <input type="tel" id="address-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-line1">Address Line 1</label>
+                        <input type="text" id="address-line1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-line2">Address Line 2 (Optional)</label>
+                        <input type="text" id="address-line2">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address-city">City</label>
+                            <input type="text" id="address-city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-state">State</label>
+                            <input type="text" id="address-state" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-pincode">Pincode</label>
+                        <input type="text" id="address-pincode" maxlength="6" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="address-default">
+                            Set as default address
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Address</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('address-modal')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="password-modal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Change Password</h3>
+                <button class="modal-close" onclick="closeModal('password-modal')">&times;</button>
+            </div>
+            <div class="modal-content">
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" onclick="savePassword()">Change Password</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('password-modal')">Cancel</button>
+                    </div>
+                </form>
+                <div class="forgot-password-link">
+                    <a href="#" onclick="openForgotPassword()">Forgot your current password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="otp-modal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Reset Password</h3>
+                <button class="modal-close" onclick="closeModal('otp-modal')">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div id="otp-step-1">
+                    <p>Enter your registered phone number to receive an OTP for password reset.</p>
+                    <form id="otp-request-form">
+                        <div class="form-group">
+                            <label for="otp-phone">Phone Number</label>
+                            <input type="tel" id="otp-phone" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Send OTP</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeModal('otp-modal')">Cancel</button>
+                        </div>
+                    </form>
+                    <div class="otp-help-text">
+                        <p><i class="fas fa-info-circle"></i> Don't have an account? <a href="index.html">Create one here</a> first.</p>
+                    </div>
+                </div>
+                
+                <div id="otp-step-2" style="display: none;">
+                    <p>Enter the OTP sent to your phone number.</p>
+                    <form id="otp-verify-form">
+                        <div class="form-group">
+                            <label for="otp-code">OTP Code</label>
+                            <input type="text" id="otp-code" maxlength="6" placeholder="Enter 6-digit OTP" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Verify OTP</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeModal('otp-modal')">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="otp-step-3" style="display: none;">
+                    <p>Enter your new password.</p>
+                    <form id="otp-reset-form">
+                        <div class="form-group">
+                            <label for="reset-password">New Password</label>
+                            <input type="password" id="reset-password" placeholder="Enter new password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reset-confirm">Confirm New Password</label>
+                            <input type="password" id="reset-confirm" placeholder="Confirm new password" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Reset Password</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeModal('otp-modal')">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

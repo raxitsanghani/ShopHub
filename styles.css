@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.tabs {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #3498db;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2c3e50;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder {
+    color: #adb5bd;
+}
+
+.password-input {
+    position: relative;
+}
+
+.eye-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.eye-btn:hover {
+    color: #3498db;
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.eye-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    .form-header h1 {
+        font-size: 2rem;
+    }
+    
+    .form-group input {
+        padding: 14px 16px;
+    }
+    
+    .submit-btn {
+        padding: 14px;
+    }
+}
+
+.form-group input[type="tel"] {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #27ae60;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    max-width: 400px;
+    word-wrap: break-word;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.success-message.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.error-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    max-width: 400px;
+    word-wrap: break-word;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.error-message.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: #f8f9fa;
+    color: #495057;
+}
+
+.modal-content {
+    padding: 25px;
+}
+
+.modal-content p {
+    color: #6c757d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.form-actions .btn {
+    flex: 1;
+    max-width: 150px;
+}
+
+/* Forgot Password Help Text */
+.forgot-help-text {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    text-align: center;
+}
+
+.forgot-help-text p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.forgot-help-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-help-text a:hover {
+    text-decoration: underline;
+}

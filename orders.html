@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders - ShopHub</title>
+    <link rel="stylesheet" href="orders.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <header class="top-header">
+        <div class="header-content">
+            <!-- Left Side -->
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-text">shophub</span>
+                    <div class="logo-arrow"></div>
+                </div>
+                <div class="delivery-info">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <div class="delivery-text">
+                        <span class="delivery-location">Delivering to Ahmedabad 380009</span>
+                        <span class="update-location">Update location</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Section - Search Bar -->
+            <div class="search-section">
+                <div class="search-container">
+                    <select class="category-dropdown">
+                        <option>All</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Home</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search ShopHub">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="header-right">
+                <div class="language-selector">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span>EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="account-section">
+                    <span class="hello-text">Hello, sign in</span>
+                    <span class="account-text">Account & Lists</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="returns-section">
+                    <span class="returns-text">Returns</span>
+                    <span class="orders-text">& Orders</span>
+                </div>
+                
+                <div class="cart-section">
+                    <div class="cart-icon-container">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <span class="cart-text">Cart</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>All</span>
+                </button>
+                <a href="#" class="nav-link">Fresh</a>
+                <a href="#" class="nav-link">Prime <i class="fas fa-chevron-down"></i></a>
+                <a href="#" class="nav-link">Today's Deals</a>
+                <a href="#" class="nav-link">Customer Service</a>
+                <a href="#" class="nav-link">Electronics</a>
+                <a href="#" class="nav-link">Fashion</a>
+                <a href="#" class="nav-link">Home & Kitchen</a>
+                <a href="#" class="nav-link">Books</a>
+                <a href="#" class="nav-link">Sports</a>
+                <a href="#" class="nav-link">Automotive</a>
+                <a href="#" class="nav-link">Beauty</a>
+                <a href="#" class="nav-link">Toys</a>
+                <a href="#" class="nav-link">Health</a>
+                <a href="#" class="nav-link">Garden</a>
+                <a href="#" class="nav-link">Office</a>
+                <a href="#" class="nav-link">Pet Supplies</a>
+                <a href="#" class="nav-link">Baby Products</a>
+                <a href="#" class="nav-link">Jewelry</a>
+                <a href="#" class="nav-link">Tools</a>
+                <a href="#" class="nav-link">Music</a>
+                <a href="#" class="nav-link">Movies</a>
+                <a href="#" class="nav-link">Video Games</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="promo-banner">
+                    <span class="promo-text">ANDHERA</span>
+                    <div class="prime-banner">
+                        <span class="prime-text">Join Prime Lite at ₹67/month*</span>
+                        <span class="prime-note">*when paid annually</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="dashboard.html">Your Account</a>
+            <span class="breadcrumb-separator">></span>
+            <span>Your Orders</span>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Your Orders</h1>
+            <div class="order-search">
+                <div class="search-input-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search all orders" class="order-search-input">
+                </div>
+                <button class="search-orders-btn">Search Orders</button>
+            </div>
+        </div>
+
+        <!-- Order Tabs -->
+        <div class="order-tabs">
+            <button class="tab-btn active" onclick="switchOrderTab('orders')">Orders</button>
+            <button class="tab-btn" onclick="switchOrderTab('buy-again')">Buy Again</button>
+            <button class="tab-btn" onclick="switchOrderTab('not-shipped')">Not Yet Shipped</button>
+            <button class="tab-btn" onclick="switchOrderTab('cancelled')">Cancelled Orders</button>
+        </div>
+
+        <!-- Order Filter -->
+        <div class="order-filter">
+            <span>0 orders placed in</span>
+            <select class="time-filter">
+                <option>past 3 months</option>
+                <option>past 6 months</option>
+                <option>past 12 months</option>
+                <option>2025</option>
+                <option>2024</option>
+            </select>
+        </div>
+
+        <!-- Orders Content -->
+        <div class="orders-content">
+            <div id="orders-tab" class="tab-panel active">
+                <div class="no-orders-message">
+                    <p>Looks like you haven't placed an order in the last 3 months.</p>
+                    <a href="#" class="view-orders-link">View orders in 2025</a>
+                </div>
+                
+                <!-- Sponsored Product -->
+                <div class="sponsored-product">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/200x300/1e3a8a/ffffff?text=Samsung" alt="Samsung Refrigerator">
+                    </div>
+                    <div class="product-details">
+                        <h3>Samsung 223L 3 Star Inverter Direct-Cool Single Door Refrigerator</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">48</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">₹20,798.00</span>
+                            <span class="original-price">₹25,999.00</span>
+                        </div>
+                        <button class="shop-now-btn">Shop now</button>
+                    </div>
+                    <div class="sponsored-label">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Sponsored</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buy-again-tab" class="tab-panel">
+                <div class="no-orders-message">
+                    <p>No items available to buy again.</p>
+                </div>
+            </div>
+
+            <div id="not-shipped-tab" class="tab-panel">
+                <div class="no-orders-message">
+                    <p>All your orders have been shipped.</p>
+                </div>
+            </div>
+
+            <div id="cancelled-tab" class="tab-panel">
+                <div class="no-orders-message">
+                    <p>No cancelled orders found.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="orders.js"></script>
+</body>
+</html>

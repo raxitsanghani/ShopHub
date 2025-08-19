@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <header class="top-header">
+        <div class="header-content">
+            <!-- Left Side -->
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-text">shophub</span>
+                    <div class="logo-arrow"></div>
+                </div>
+                <div class="delivery-info">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <div class="delivery-text">
+                        <span class="delivery-location">Delivering to Ahmedabad 380009</span>
+                        <span class="update-location">Update location</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Section - Search Bar -->
+            <div class="search-section">
+                <div class="search-container">
+                    <select class="category-dropdown">
+                        <option>All</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Home</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search ShopHub">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="header-right">
+                <div class="language-selector">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span>EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="account-section">
+                    <span class="hello-text">Hello, sign in</span>
+                    <span class="account-text">Account & Lists</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="returns-section">
+                    <span class="returns-text">Returns</span>
+                    <span class="orders-text">& Orders</span>
+                </div>
+                
+                <div class="cart-section">
+                    <div class="cart-icon-container">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <span class="cart-text">Cart</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                    <span>All</span>
+                </button>
+                <a href="#" class="nav-link">Fresh</a>
+                <a href="#" class="nav-link">Prime <i class="fas fa-chevron-down"></i></a>
+                <a href="#" class="nav-link">Today's Deals</a>
+                <a href="#" class="nav-link">Customer Service</a>
+                <a href="#" class="nav-link">Electronics</a>
+                <a href="#" class="nav-link">Fashion</a>
+                <a href="#" class="nav-link">Home & Kitchen</a>
+                <a href="#" class="nav-link">Books</a>
+                <a href="#" class="nav-link">Sports</a>
+                <a href="#" class="nav-link">Automotive</a>
+                <a href="#" class="nav-link">Beauty</a>
+                <a href="#" class="nav-link">Toys</a>
+                <a href="#" class="nav-link">Health</a>
+                <a href="#" class="nav-link">Garden</a>
+                <a href="#" class="nav-link">Office</a>
+                <a href="#" class="nav-link">Pet Supplies</a>
+                <a href="#" class="nav-link">Baby Products</a>
+                <a href="#" class="nav-link">Jewelry</a>
+                <a href="#" class="nav-link">Tools</a>
+                <a href="#" class="nav-link">Music</a>
+                <a href="#" class="nav-link">Movies</a>
+                <a href="#" class="nav-link">Video Games</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="promo-banner">
+                    <span class="promo-text">ANDHERA</span>
+                    <div class="prime-banner">
+                        <span class="prime-text">Join Prime Lite at ₹67/month*</span>
+                        <span class="prime-note">*when paid annually</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="welcome-section">
+            <h1>Welcome to ShopHub Dashboard!</h1>
+            <p>You have successfully logged in. Start exploring our amazing products!</p>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <i class="fas fa-shopping-bag"></i>
+                <h3>My Orders</h3>
+                <p>Track your recent orders</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <i class="fas fa-heart"></i>
+                <h3>Wishlist</h3>
+                <p>View your saved items</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <i class="fas fa-user"></i>
+                <h3>Profile</h3>
+                <p>Manage your account</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <i class="fas fa-cog"></i>
+                <h3>Settings</h3>
+                <p>Customize preferences</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
