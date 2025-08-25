@@ -6,11 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
             
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
+            tabBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+                b.setAttribute('tabindex', '-1');
+            });
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                content.setAttribute('aria-hidden', 'true');
+            });
             
             btn.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            btn.setAttribute('tabindex', '0');
+            const targetPanel = document.getElementById(targetTab);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                targetPanel.setAttribute('aria-hidden', 'false');
+                targetPanel.focus({ preventScroll: true });
+            }
             
             // Clear any error messages when switching tabs
             clearErrorMessages();
@@ -30,12 +44,65 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Initialize tab a11y and theme toggle
+    initializeTabsA11y();
+    initializeTheme();
+
     // Add forgot password form event listeners
     setupForgotPasswordForms();
     
     // Clear any existing error messages on page load
     clearErrorMessages();
 });
+
+function initializeTabsA11y() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabBtns.forEach(btn => {
+        btn.setAttribute('role', 'tab');
+        const isActive = btn.classList.contains('active');
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        btn.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+    tabContents.forEach(panel => {
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-hidden', panel.classList.contains('active') ? 'false' : 'true');
+    });
+}
+
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+    updateThemeToggleButton();
+
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeToggleButton();
+        });
+    }
+}
+
+function updateThemeToggleButton() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+    const isDark = document.body.classList.contains('dark-mode');
+    toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    const icon = toggle.querySelector('i');
+    if (icon) {
+        icon.classList.toggle('fa-moon', !isDark);
+        icon.classList.toggle('fa-sun', isDark);
+    }
+    toggle.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+}
 
 function setupForgotPasswordForms() {
     // Forgot OTP form
@@ -333,6 +400,9 @@ function showSuccessMessage(message, callback) {
     const messageBox = document.createElement('div');
     messageBox.className = 'success-message';
     messageBox.textContent = message;
+    messageBox.setAttribute('role', 'status');
+    messageBox.setAttribute('aria-live', 'polite');
+    messageBox.setAttribute('aria-atomic', 'true');
     
     document.body.appendChild(messageBox);
     
@@ -353,6 +423,9 @@ function showErrorMessage(message) {
     const messageBox = document.createElement('div');
     messageBox.className = 'error-message';
     messageBox.textContent = message;
+    messageBox.setAttribute('role', 'alert');
+    messageBox.setAttribute('aria-live', 'assertive');
+    messageBox.setAttribute('aria-atomic', 'true');
     
     document.body.appendChild(messageBox);
     
@@ -377,10 +450,14 @@ function togglePassword(inputId) {
         input.type = 'text';
         icon.classList.remove('fa-eye');
         icon.classList.add('fa-eye-slash');
+        eyeBtn.setAttribute('aria-pressed', 'true');
+        eyeBtn.setAttribute('aria-label', 'Hide password');
     } else {
         input.type = 'password';
         icon.classList.remove('fa-eye-slash');
         icon.classList.add('fa-eye');
+        eyeBtn.setAttribute('aria-pressed', 'false');
+        eyeBtn.setAttribute('aria-label', 'Show password');
     }
 }
 

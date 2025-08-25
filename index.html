@@ -13,14 +13,17 @@
             <div class="form-header">
                 <h1>Welcome to ShopHub</h1>
                 <p>Your ultimate shopping destination</p>
+                <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
             
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="login">Login</button>
-                <button class="tab-btn" data-tab="signup">Create Account</button>
+            <div class="tabs" role="tablist" aria-label="Authentication">
+                <button id="tab-login" class="tab-btn active" data-tab="login" role="tab" aria-selected="true" tabindex="0" aria-controls="login">Login</button>
+                <button id="tab-signup" class="tab-btn" data-tab="signup" role="tab" aria-selected="false" tabindex="-1" aria-controls="signup">Create Account</button>
             </div>
             
-            <div class="tab-content active" id="login">
+            <div class="tab-content active" id="login" role="tabpanel" aria-labelledby="tab-login" aria-hidden="false" tabindex="0">
                 <form class="form" id="login">
                     <div class="form-group">
                         <label for="login-email">Email</label>
@@ -45,7 +48,7 @@
                 </form>
             </div>
             
-            <div class="tab-content" id="signup">
+            <div class="tab-content" id="signup" role="tabpanel" aria-labelledby="tab-signup" aria-hidden="true" tabindex="0">
                 <form class="form" id="signup">
                     <div class="form-group">
                         <label for="signup-phone">Phone Number</label>
